@@ -1,0 +1,8 @@
+export const products = [
+  {id:'panque-de-limon',name:'Panqué de limón',category:'Panqués',description:'Panqué artesanal de limón con glaseado.',ingredients:'Limón, harina, huevo',priceCents:5200,stock:0,status:'draft',image:'/brand/limon.jpeg',toppingIds:[]},
+  {id:'panque-de-zanahoria-y-nuez',name:'Panqué de zanahoria & nuez',category:'Panqués',description:'Una receta casera de zanahoria y nuez.',ingredients:'Zanahoria, nuez, harina, huevo',priceCents:6500,stock:0,status:'draft',image:'',toppingIds:[]},
+  {id:'panque-de-platano-con-chocolate',name:'Panqué de plátano con chocolate',category:'Panqués',description:'Panqué casero de plátano y chispas de chocolate semiamargo.',ingredients:'Plátano, chocolate, harina, huevo',priceCents:4500,stock:0,status:'draft',image:'/brand/chocolate.jpeg',toppingIds:['nutella','nuez','almendras','glaseado-extra']},
+  {id:'panque-limonada-de-fresa',name:'Panqué “Limonada de fresa”',category:'Panqués',description:'Fresa y limón bajo un glaseado suave.',ingredients:'Fresa, limón, harina, huevo',priceCents:4500,stock:0,status:'draft',image:'/brand/fresa.jpeg',toppingIds:[]},
+  {id:'rol-de-oreo',name:'Rol de Oreo',category:'Roles',description:'Masa suave horneada al día, rellena de galleta Oreo y glaseado de la casa.',ingredients:'Masa madre, glaseado, galleta Oreo, mantequilla',priceCents:8500,stock:0,status:'draft',image:'',toppingIds:['nutella','nuez','almendras']}
+];
+export const toppings=[{id:'nutella',name:'Nutella',priceCents:1500,active:true},{id:'nuez',name:'Nuez',priceCents:1500,active:true},{id:'almendras',name:'Almendras',priceCents:1500,active:true},{id:'glaseado-extra',name:'Extra glaseado',priceCents:1000,active:true}];
