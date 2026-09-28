@@ -1,7 +1,7 @@
 import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { CartLine, Catalog, Product, Receipt, RequestRecord, Settings, SnapshotLine, Topping, proposedProducts, proposedToppings } from './models';
+import { CartLine, Product, Receipt, RequestRecord, Settings, SnapshotLine, Topping, proposedProducts, proposedToppings } from './models';
 @Injectable({providedIn:'root'})
 export class ShopService {
   private http=inject(HttpClient);
@@ -19,7 +19,7 @@ export class ShopService {
   }));
   constructor(){effect(()=>localStorage.setItem('blisscocho-angular-cart',JSON.stringify(this.cart())));this.reload();}
   private readCart():CartLine[]{try{const value=JSON.parse(localStorage.getItem('blisscocho-angular-cart')||'[]');return Array.isArray(value)?value:[]}catch{return []}}
-  async reload(){try{const data=await firstValueFrom(this.http.get<Catalog>('/api/catalog'));this.products.set(data.products);this.toppings.set(data.toppings);this.settings.set(data.settings);this.error.set('')}catch{this.error.set('El catálogo no está disponible. Se muestra la propuesta para revisión.')}}
+  async reload(){this.products.set(proposedProducts);this.toppings.set(proposedToppings);this.settings.set({whatsapp:'',deliveryMinimumCents:15000,ordersEnabled:false});this.error.set('')}
   product(id:string){return this.products().find(p=>p.id===id)}
   topping(id:string){return this.toppings().find(t=>t.id===id)}
   lineTotal(line:CartLine){const p=this.product(line.id);return (p?.priceCents||0)*line.quantity + line.toppingIds.reduce((n,id)=>n+(this.topping(id)?.priceCents||0)*line.quantity,0)}

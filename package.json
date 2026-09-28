@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
+    "build:pages": "ng build --base-href /blisscocho-angular/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev": "node server/dev.mjs",
